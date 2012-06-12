@@ -24,27 +24,6 @@ public abstract class AbstractTxDAO extends AbstractDAO {
         super( txAware );
     }
 
-    public static HashSet<String>  dipRecordXrefSet = new HashSet<String>();
-    public static HashMap<String, String> recordMap = new HashMap<String, String>();
-
-    static {
-        recordMap.put("Link", "DipLink");
-        recordMap.put("Protein", "DipNode");
-        recordMap.put("Message", "DipNode");
-        recordMap.put("Gene", "DipNode");
-        recordMap.put("Article", "DipSource");
-        recordMap.put("Evidence", "DipEvidence");
-        recordMap.put("Inference", "DipInference");
-        recordMap.put("LNode", "LNode");
-        recordMap.put("ENode", "ENode");
-
-        dipRecordXrefSet.add( "DipLinkXref" );
-        dipRecordXrefSet.add( "DipEvidenceXref" );
-        dipRecordXrefSet.add( "DipInferenceXref" );
-        dipRecordXrefSet.add( "DipSourceXref" );
-        dipRecordXrefSet.add( "DipNodeXref" );
-    }
-
     protected void save( Object obj ) throws DAOException {
 
         Session session = hibernateOrmUtil.getCurrentSession();

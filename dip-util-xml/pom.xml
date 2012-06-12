@@ -2,11 +2,6 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>dip-ws</artifactId>
-    <groupId>edu.ucla.mbi.dip</groupId>
-    <version>0.01</version>
-  </parent>
 
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util-xml</artifactId>
@@ -14,6 +9,12 @@
   <version>0.01</version>
   <name>dip-util-xml</name>
   <url>http://dip.mbi.ucla.edu</url>
+
+  <parent>
+    <artifactId>dip-util</artifactId>
+    <groupId>edu.ucla.mbi.dip</groupId>
+    <version>0.01</version>
+  </parent>
 
   <dependencies>
     <dependency>
@@ -42,8 +43,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
-         <descriptorRefs>
-          <descriptorRef>jar-with-dependencies</descriptorRef>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
         </configuration>
      </plugin>

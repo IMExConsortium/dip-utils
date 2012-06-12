@@ -2,11 +2,6 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>dip-ws</artifactId>
-    <groupId>edu.ucla.mbi.dip</groupId>
-    <version>0.01</version>
-  </parent>
 
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util-graph</artifactId>
@@ -15,14 +10,11 @@
   <name>dip-util-graph</name>
   <url>http://dip.mbi.ucla.edu</url>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <parent>
+    <artifactId>dip-util</artifactId>
+    <groupId>edu.ucla.mbi.dip</groupId>
+    <version>0.01</version>
+  </parent>
 
   <build>
     <finalName>dip-util-graph</finalName>
