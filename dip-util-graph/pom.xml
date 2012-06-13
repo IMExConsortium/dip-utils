@@ -6,14 +6,14 @@
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util-graph</artifactId>
   <packaging>jar</packaging>
-  <version>0.01</version>
+  <version>0.02</version>
   <name>dip-util-graph</name>
   <url>http://dip.mbi.ucla.edu</url>
 
   <parent>
     <artifactId>dip-util</artifactId>
     <groupId>edu.ucla.mbi.dip</groupId>
-    <version>0.01</version>
+    <version>0.02</version>
   </parent>
 
   <build>
