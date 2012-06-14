@@ -61,7 +61,7 @@ public class Fault {
 		    Fault.createServiceFault( 7, "transformation error" ) ); 
 	    fault.put(  8, 
 		    Fault.createServiceFault( 8, "invalid query type" ) ); 
-            fault.put(  9,
+        fault.put(  9,
             Fault.createServiceFault( 9, "operation not allowed" ) );
 
 	    fault.put( 12, 
@@ -69,23 +69,23 @@ public class Fault {
 	    fault.put( 13, 
 		   Fault.createServiceFault( 13, "remote server fault" ) ); 
 
-            fault.put( 22,
-                       Fault.createServiceFault( 22, "duplicate entry" ) );
-            fault.put( 23,
-                       Fault.createServiceFault( 23, "transaction error" ) );
-            fault.put( 24,
-                       Fault.createServiceFault( 24, "format error" ) );
+        fault.put( 22,
+            Fault.createServiceFault( 22, "duplicate entry" ) );
+        fault.put( 23,
+            Fault.createServiceFault( 23, "transaction error" ) );
+        fault.put( 24,
+            Fault.createServiceFault( 24, "format error" ) );
             
-            fault.put( 25,
-                       Fault.createServiceFault( 25, "remote validation" ) );
-            fault.put( 26,
-                       Fault.createServiceFault( 26, "validation error" ) );
+        fault.put( 25,
+            Fault.createServiceFault( 25, "remote validation" ) );
+        fault.put( 26,
+            Fault.createServiceFault( 26, "validation error" ) );
             
-            fault.put( AUTH,
-                       Fault.createServiceFault( AUTH, "authentication error" ) );
+        fault.put( AUTH,
+            Fault.createServiceFault( AUTH, "authentication error" ) );
             
 	    fault.put( UNKNOWN,
-                       Fault.createServiceFault( UNKNOWN, "unrecognized error" ) );
+            Fault.createServiceFault( UNKNOWN, "unrecognized error" ) );
  
     }
     
