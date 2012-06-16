@@ -38,15 +38,11 @@ public class Fault {
     public static final int AUTH = 98;
     public static final int UNKNOWN = 99;
 
-    //private static ObjectFactory faultFactory;
-    //private static Map<Integer,ServiceFault> fault;
-    private static Map<Integer, String> fault;
+    public static Map<Integer, String> fault;
     
     static {
 
-	    //fault = new HashMap<Integer,ServiceFault>();
         fault = new HashMap<Integer, String>();
-	    //faultFactory = new ObjectFactory();
         fault.put(  2, "missing identifier" );
         fault.put(  3, "invalid identifier" );
         fault.put(  4, "unsupported operation" );
@@ -67,83 +63,5 @@ public class Fault {
 
         fault.put( AUTH, "authentication error" );
         fault.put( UNKNOWN, "unrecognized error" );
-
-        /*
-	    fault.put(  2, 
-		    Fault.createServiceFault( 2, "missing identifier" ) ); 
-	    fault.put(  3, 
-		    Fault.createServiceFault( 3, "invalid identifier" ) ); 
-	    fault.put(  4, 
-		    Fault.createServiceFault( 4, "unsupported operation" ) ); 
-	    fault.put(  5, 
-		    Fault.createServiceFault( 5, "no record found" ) ); 
-	    fault.put(  6, 
-		    Fault.createServiceFault( 6, "marshaling error" ) ); 
-	    fault.put(  7, 
-		    Fault.createServiceFault( 7, "transformation error" ) ); 
-	    fault.put(  8, 
-		    Fault.createServiceFault( 8, "invalid query type" ) ); 
-        fault.put(  9,
-            Fault.createServiceFault( 9, "operation not allowed" ) );
-
-	    fault.put( 12, 
-		   Fault.createServiceFault( 12, "remote server timeout" ) ); 
-	    fault.put( 13, 
-		   Fault.createServiceFault( 13, "remote server fault" ) ); 
-
-        fault.put( 22,
-            Fault.createServiceFault( 22, "duplicate entry" ) );
-        fault.put( 23,
-            Fault.createServiceFault( 23, "transaction error" ) );
-        fault.put( 24,
-            Fault.createServiceFault( 24, "format error" ) );
-            
-        fault.put( 25,
-            Fault.createServiceFault( 25, "remote validation" ) );
-        fault.put( 26,
-            Fault.createServiceFault( 26, "validation error" ) );
-            
-        fault.put( AUTH,
-            Fault.createServiceFault( AUTH, "authentication error" ) );
-            
-	    fault.put( UNKNOWN,
-            Fault.createServiceFault( UNKNOWN, "unrecognized error" ) );
-        */ 
     }
-    
-    /*
-    private static ServiceFault createServiceFault(int code, String message ) {
-	
-	    ServiceFault sf = faultFactory.createServiceFault();
-	    sf.setFaultCode( code );
-	    sf.setMessage( message );
-	    return sf;
-    }
-    
-    public static final ServiceFault getServiceFault() {
-	    return fault.get( UNKNOWN );
-    }
-
-    public static final ServiceException getServiceException() {
-	    return new ServiceException( fault.get( UNKNOWN ) );
-    }
-	    
-    public static final ServiceFault getServiceFault( int code ) {
-	
-	    if( fault.get( code ) != null ){
-	        return fault.get( code );
-	    } else {
-	        return fault.get( UNKNOWN );
-	    }
-    }
-
-    public static final ServiceException getServiceException( int code ) {
-	
-	    if( fault.get( code ) != null ){
-	        return new ServiceException( fault.get( code ) );
-	    } else {
-	        return new ServiceException( fault.get( UNKNOWN ) );
-	    }
-    }
-    */
 }

@@ -27,21 +27,21 @@ public class TimeStamp {
     private static DatatypeFactory df;
     
     static {
-	try {
-	    df = DatatypeFactory.newInstance();
-	} catch( DatatypeConfigurationException dce ) {
-	    df = null;
-	}
+	    try {
+	        df = DatatypeFactory.newInstance();
+	    } catch( DatatypeConfigurationException dce ) {
+	        df = null;
+	    }
     }
 
     private TimeStamp() {}
     
     public static XMLGregorianCalendar toXmlDate( Date d ) {
 	
-	GregorianCalendar gc = new GregorianCalendar();
-	gc.setTime( d );
+	    GregorianCalendar gc = new GregorianCalendar();
+	    gc.setTime( d );
 	
-	XMLGregorianCalendar xgc = df.newXMLGregorianCalendar( gc );
-	return xgc.normalize() ;
+	    XMLGregorianCalendar xgc = df.newXMLGregorianCalendar( gc );
+	    return xgc.normalize() ;
     }
 }
