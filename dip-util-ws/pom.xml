@@ -3,10 +3,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.ucla.mbi.dip</groupId>
-  <artifactId>dip-util-api</artifactId>
+  <artifactId>dip-util-ws</artifactId>
   <packaging>jar</packaging>
   <version>0.02</version>
-  <name>dip-util-api</name>
+  <name>dip-util-ws</name>
   <url>http://dip.mbi.ucla.edu</url>
 
 
@@ -17,7 +17,7 @@
   </parent>
 
   <build>
-    <finalName>dip-util-api</finalName>
+    <finalName>dip-util-ws</finalName>
 
     <plugins>
       <plugin>
