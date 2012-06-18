@@ -46,7 +46,7 @@
     <module>dip-util-data</module>
     <module>dip-util-xml</module>
     <module>dip-util-graph</module>
-    <module>dip-util-services</module>
+    <module>dip-util-api</module>
   </modules>
 
   <dependencies>
