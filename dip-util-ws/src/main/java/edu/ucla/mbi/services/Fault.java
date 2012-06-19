@@ -34,6 +34,7 @@ public class Fault {
     public static final int FORMAT = 24;
     public static final int REMOTE_VALIDATION = 25;
     public static final int VALIDATION_ERROR = 26;
+    public static final int JSON_CONFIGURATION = 27;
 
     public static final int AUTH = 98;
     public static final int UNKNOWN = 99;
@@ -60,6 +61,7 @@ public class Fault {
         fault.put( 24, "format error" );
         fault.put( 25, "remote validation" );
         fault.put( 26, "validation error" );
+        fault.put( 27, "json configuration" );
 
         fault.put( AUTH, "authentication error" );
         fault.put( UNKNOWN, "unrecognized error" );
