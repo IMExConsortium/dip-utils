@@ -20,8 +20,6 @@ import org.apache.commons.logging.LogFactory;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
-import edu.ucla.mbi.dxf14.DatasetType;
-
 public class DxfJAXBContext  {
     
     // no instances/subclassing
@@ -38,20 +36,20 @@ public class DxfJAXBContext  {
     
     private static JAXBContext initDxfContext() {
 	try {
-	    JAXBContext jbx = JAXBContext
-		.newInstance( "edu.ucla.mbi.dxf14",
-			      DxfJAXBContext.class.getClassLoader() );
+	    JAXBContext jbx = JAXBContext.newInstance( 
+                                "edu.ucla.mbi.dxf14",
+			                    DxfJAXBContext.class.getClassLoader() );
 	    return jbx;
 	    
 	} catch( JAXBException jbe ){
 	    Log log = LogFactory.getLog( DxfJAXBContext.class );
 	    log.info( "Exception="+jbe.toString() );
 	}
-	return null;	
+	    return null;	
     }
     
     public static JAXBContext getDxfContext() {
-	return dxfContext;
+	    return dxfContext;
     }
 
 }
