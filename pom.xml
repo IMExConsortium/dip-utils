@@ -47,6 +47,7 @@
     <module>dip-util-xml</module>
     <module>dip-util-graph</module>
     <module>dip-util-ws</module>
+    <module>dip-util-security</module>
   </modules>
 
   <dependencies>
