@@ -13,7 +13,7 @@
   <parent>
     <artifactId>dip-util</artifactId>
     <groupId>edu.ucla.mbi.dip</groupId>
-    <version>${current.version}</version>
+    <version>0.02</version>
   </parent>
 
   <build>
