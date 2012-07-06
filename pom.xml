@@ -4,15 +4,18 @@
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util</artifactId>
   <packaging>pom</packaging>
-  <version>${current.version}</version>
+  <version>0.02</version>
   <name>dip-util</name>
   <url>http://dip.mbi.ucla.edu</url>
 
-  <properties>
-    <current.version>0.02</current.version>
-  </properties>
-  
- <organization>
+  <repositories>
+    <repository>
+      <id>public</id>
+      <url>http://imex.mbi.ucla.edu/archiva/repository/internal/</url>
+    </repository>
+  </repositories>
+ 
+  <organization>
     <name>UCLA-DOE Institute for Genomics and Proteomics</name>
     <url>http://www.ucla-doe.mbi.ucla.edu</url>
   </organization>
@@ -89,19 +92,5 @@
     </plugins>
   </build>
 
-  <distributionManagement>
-    <repository>
-      <id>public</id>
-      <name>IMEx Public Maven Reopsitory</name>
-      <url>http://imex.mbi.ucla.edu/archiva/repository/internal/</url>
-    </repository>
-
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>Archiva Managed Snapshot Repository</name>
-      <url>http://imex.mbi.ucla.edu/archiva/repository/snapshots/</url>
-    </snapshotRepository>
-
-  </distributionManagement>
 </project>
 

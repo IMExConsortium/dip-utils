@@ -7,14 +7,13 @@
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util-struts</artifactId>
   <packaging>jar</packaging>
-  <version>${parent.version}</version>
   <name>dip-util-struts</name>
   <url>http://dip.mbi.ucla.edu</url>
 
   <parent>
     <groupId>edu.ucla.mbi.dip</groupId>
     <artifactId>dip-util</artifactId>
-    <version>0.02</version>
+    <version>0.02</version> 
   </parent>
 
   <dependencies>
@@ -22,7 +21,7 @@
     <dependency>
       <groupId>edu.ucla.mbi.dip</groupId>
       <artifactId>dip-util-security</artifactId>
-      <version>${parent.version}</version>
+      <version>0.02</version> 
     </dependency>
 
     <dependency>
@@ -96,6 +95,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.4</version>
         <configuration>
           <verbose>true</verbose>
           <fork>true</fork>

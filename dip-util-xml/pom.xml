@@ -6,14 +6,13 @@
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util-xml</artifactId>
   <packaging>jar</packaging>
-  <version>${parent.version}</version>
   <name>dip-util-xml</name>
   <url>http://dip.mbi.ucla.edu</url>
 
   <parent>
     <artifactId>dip-util</artifactId>
     <groupId>edu.ucla.mbi.dip</groupId>
-    <version>0.02</version>
+    <version>0.02</version> 
   </parent>
 
   <build>
@@ -22,6 +21,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.4</version>
         <configuration>
           <verbose>true</verbose>
           <fork>true</fork>
