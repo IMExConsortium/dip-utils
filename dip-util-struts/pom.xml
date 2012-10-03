@@ -8,7 +8,6 @@
   <artifactId>dip-util-struts</artifactId>
   <packaging>jar</packaging>
   <name>dip-util-struts</name>
-  <url>http://dip.mbi.ucla.edu</url>
 
   <parent>
     <groupId>edu.ucla.mbi.dip</groupId>

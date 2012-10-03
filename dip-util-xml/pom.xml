@@ -7,7 +7,6 @@
   <artifactId>dip-util-xml</artifactId>
   <packaging>jar</packaging>
   <name>dip-util-xml</name>
-  <url>http://dip.mbi.ucla.edu</url>
 
   <parent>
     <artifactId>dip-util</artifactId>

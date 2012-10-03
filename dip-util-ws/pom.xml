@@ -6,8 +6,6 @@
   <artifactId>dip-util-ws</artifactId>
   <packaging>jar</packaging>
   <name>dip-util-ws</name>
-  <url>http://dip.mbi.ucla.edu</url>
-
 
   <parent>
    <groupId>edu.ucla.mbi.dip</groupId>

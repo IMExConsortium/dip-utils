@@ -5,7 +5,6 @@
   <artifactId>dip-util-security</artifactId>
   <packaging>jar</packaging>
   <name>dip-util-security</name>
-  <url>http://imex.mbi.ucla.edu/trac/dip</url>
 
   <parent>
     <groupId>edu.ucla.mbi.dip</groupId>
