@@ -6,7 +6,7 @@ package edu.ucla.mbi.util;
  * Version:: $Rev$
  *==============================================================================
  *
- * GetPathFromJsonContext 
+ * JsonUnderServletContext
  *
  *==============================================================================
  */
@@ -14,11 +14,11 @@ package edu.ucla.mbi.util;
 import java.io.*;
 import javax.servlet.ServletContext;
 
-public class GetPathFromJsonContext {
+public class JsonUnderServletContext {
     
-    public static String getPath ( JsonContext jsonContext,
-                                   ServletContext servletContext 
-                                   ) throws Exception 
+    public static String getPathAfterReadJson ( JsonContext jsonContext,
+                                                ServletContext servletContext 
+                                                ) throws Exception 
     {
 
         String jsonPath =
@@ -29,6 +29,7 @@ public class GetPathFromJsonContext {
             String cpath = jsonPath.replaceAll("^\\s+","" );
             cpath = jsonPath.replaceAll("\\s+$","" );
 
+            
             try {
                 InputStream is = servletContext.getResourceAsStream( cpath );
                 jsonContext.readJsonConfigDef( is );
