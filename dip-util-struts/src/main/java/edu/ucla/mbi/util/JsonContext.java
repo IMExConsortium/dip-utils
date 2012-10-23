@@ -114,7 +114,12 @@ public class JsonContext {
 	    log.info( "parsing error: " + jex.toString() );
 	}
     }
-
+    
+    public void readJsonConfigDef( String cpath ) {        
+        File cfile = new File( cpath );
+        InputStream is = new FileInputStream( cfile );   
+        readJsonConfigDef( is );
+    }
 
     //--------------------------------------------------------------------------
     // write JSON definition
@@ -129,7 +134,15 @@ public class JsonContext {
 	    	log.info( "JSON printing error: " + jex.toString());
 		}
     }
-
+    
+    public void writeJsonConfigDef( String cpath ) {
+        
+        File sf = new File( cpath );
+        PrintWriter spw = new PrintWriter( sf );
+        
+        writeJsonConfigDef(spw);
+    }
+    
     //--------------------------------------------------------------------------
     // java.util -> JSON conversion
     //-----------------------------

@@ -13,10 +13,18 @@
   </properties>
 
   <repositories>
-    <repository>
+   <repository>
       <id>internal</id>
+      <name>Archiva Managed Internal Repository</name>
       <url>http://imex.mbi.ucla.edu/archiva/repository/internal/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
+
   </repositories>
 
   <organization>
@@ -98,15 +106,14 @@
   </build>
 
   <distributionManagement>
+
     <repository>
       <id>internal</id>
-      <name>Archiva Managed Internal Repository</name>
       <url>http://imex.mbi.ucla.edu/archiva/repository/internal/</url>
     </repository>
 
     <snapshotRepository>
       <id>snapshots</id>
-      <name>Archiva Managed Snapshot Repository</name>
       <url>http://imex.mbi.ucla.edu/archiva/repository/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
