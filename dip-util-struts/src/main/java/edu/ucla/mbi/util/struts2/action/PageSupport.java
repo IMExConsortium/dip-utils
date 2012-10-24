@@ -165,35 +165,6 @@ public class PageSupport extends PortalSupport {
         }
     }
 
-    public boolean doJsonFileUpdate( JsonContext jsContext, String jsonFilePath) {
-
-        Log log = LogFactory.getLog( this.getClass() );
-        
-        PrintWriter pw = null;
-
-        try {
-
-            log.info( " write: jfPath=" + jsonFilePath );
-            pw = new PrintWriter ( new File ( jsonFilePath ) );
-
-            synchronized(this) {
-                jsContext.writeJsonConfigDef ( pw );
-                log.info( " doUpdate: after write json context. " );
-            }
-
-            pw.flush();
-        } catch ( Exception e ) {
-            log.info ( "JSON printting error: " + e.toString() );
-            return false;
-        } finally {
-            if( pw != null ){
-                pw.close();
-            }
-        }
-
-        return true;
-    }
- 
     public String execute() throws Exception {
 	
 	initialize();
