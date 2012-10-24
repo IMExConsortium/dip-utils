@@ -115,7 +115,7 @@ public class JsonContext {
 	}
     }
     
-    public void readJsonConfigDef( String cpath ) {        
+    public void readJsonConfigDef( String cpath ) throws IOException {        
         File cfile = new File( cpath );
         InputStream is = new FileInputStream( cfile );   
         readJsonConfigDef( is );
@@ -135,7 +135,7 @@ public class JsonContext {
 		}
     }
     
-    public void writeJsonConfigDef( String cpath ) {
+    public void writeJsonConfigDef( String cpath ) throws IOException {
         
         File sf = new File( cpath );
         PrintWriter spw = new PrintWriter( sf );
