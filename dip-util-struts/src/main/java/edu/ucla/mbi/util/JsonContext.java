@@ -131,7 +131,6 @@ public class JsonContext {
 
     public void writeJsonConfigDef( PrintWriter pw ) {
 		Log log = LogFactory.getLog( this.getClass() );
-        log.info( "writeJsonConfigDef: jsonConfigUtil=" + jsonConfigUtil );
 		JSONObject currentJSONConfigObject = util2json(jsonConfigUtil);
 		try {
 			pw.print(currentJSONConfigObject.toString(2));
