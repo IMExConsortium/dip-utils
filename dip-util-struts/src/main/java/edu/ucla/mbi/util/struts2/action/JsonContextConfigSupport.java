@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts2.action;
 
 /*==============================================================================
- * $HeadURL$
- * $Id$
- * Version: $Rev$
+ * $HeadURL::                                                                  $
+ * $Id::                                                                       $
+ * Version:: $Rev$
  *==============================================================================
  *
  * JsonContextConfigure Action:
