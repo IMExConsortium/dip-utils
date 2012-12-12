@@ -10,8 +10,6 @@ package edu.ucla.mbi.util.struts2.action;
  *
  *=========================================================================== */
 
-import com.opensymphony.xwork2.ActionSupport;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -25,13 +23,15 @@ import edu.ucla.mbi.util.JsonContext;
 public abstract class JsonContextConfigSupport extends ManagerSupport {
 
     private Log log = LogFactory.getLog( JsonContextConfigSupport.class );
-
-    private Map<String, Object> topMap;     
-    private JsonContext jsonContext;
     
-    private Map<String, Object> contextMap; 
-    private String contextTop; 
+    private final String JSON = "json";
+
+    //*** spring injection
+    private JsonContext jsonContext;
+    private String contextTop;
     private int contextDepth = 1;
+
+    protected Map<String, Object> contextMap; 
 
     //*** setter
     public void setJsonContext( JsonContext context ) {
@@ -47,6 +47,8 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
     }
  
     //*** getter    
+
+    //*** used for json return 
     public Map<String, Object> getContextMap() {
         return contextMap;
     } 
@@ -77,7 +79,6 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
         }
         
         contextMap = jsonContext.getJsonConfig();
-        topMap = (Map<String, Object>)contextMap.get( contextTop );
 
         log.info( "execute: contextMap=" + contextMap );
         log.info( "contextDepth=" + contextDepth );
@@ -108,7 +109,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
         
         if( opKey.equals( "show" ) ) {
             log.info( "execute: op.show hit. " );
-            return "json";
+            return JSON;
         }
 
         String newKey = null;
@@ -116,8 +117,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
 
         String[] levelArrayT  = null;
         String[] levelArrayI = null;
-
-        int maxOfLevel = 0; // this value <= contextDepth
+        int levelDepth = 0;
 
         //*** fill levelArrayI using oppVal
         for( String oppKey:getOpp().keySet() ) {
@@ -126,16 +126,17 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
 
             if( oppKey.startsWith( "path" ) ) {
                 levelArrayI = oppVal.split("\\|");
+                levelDepth = levelArrayI.length;
 
-                if( levelArrayI.length > contextDepth ) {
+                if( levelDepth > contextDepth ) {
                     log.warn( "opAction: opp(" + opKey + "=" + opVal + ") " +
                               "level should not be greater than contextDepth. " );
                     return ERROR; 
                 }
 
-                levelArrayT = new String[ levelArrayI.length ]; 
+                levelArrayT = new String[levelDepth]; 
                 
-                for( int i = 0; i < levelArrayI.length; i++ ) {
+                for( int i = 0; i < levelDepth; i++ ) {
                     if( levelArrayI[i].startsWith( "^" ) ) {
                         levelArrayT[i] = "l";
                         levelArrayI[i] = levelArrayI[i].substring( 1 ); //remove ^ char
@@ -157,7 +158,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
         
         //*** validate levelArray
         boolean pathOk = false;
-        for( int i = levelArrayI.length; i > 0; i-- ) {
+        for( int i = levelDepth; i > 0; i-- ) {
             if( pathOk ) {
                 if( levelArrayT[i-1] == null || levelArrayI[i-1] == null ) {
                     pathOk = false;
@@ -170,7 +171,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
             }
         }
 
-        if( !pathOk && levelArrayI.length > 0 ) {
+        if( !pathOk && levelDepth > 0 ) {
             log.warn( "There is a wrong level path in the url request. " );
             return ERROR;
         }
@@ -187,7 +188,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
          * newVal: opp.value
          **/
 
-        for( int i = 0; i < levelArrayI.length; i++ ) {
+        for( int i = 0; i < levelDepth; i++ ) {
         
             if( levelArrayT[i].equals("m") ) {
                 try {
