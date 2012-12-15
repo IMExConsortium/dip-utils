@@ -13,7 +13,7 @@ package edu.ucla.mbi.util.data.dao;
 import java.util.*;
 import edu.ucla.mbi.util.data.*;
 
-public interface WorkflowDAO {
+public interface WorkflowDao {
 
     public DataState getDataState( int id );
     public DataState getDataState( String title );

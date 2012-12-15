@@ -11,11 +11,9 @@ package edu.ucla.mbi.util.data.dao;
  #======================================================================= */
 
 import java.util.*;
-import edu.ucla.mbi.util.User;
-import edu.ucla.mbi.util.Group;
 import edu.ucla.mbi.util.data.*;
 
-public interface PublicationDAO {
+public interface PublicationDao {
 
     public Publication getPublication( int id );
     public Publication getPublication( String title );

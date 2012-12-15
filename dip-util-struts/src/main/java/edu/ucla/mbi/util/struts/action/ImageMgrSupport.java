@@ -25,6 +25,7 @@ import org.json.*;
 
 import edu.ucla.mbi.util.data.*;
 import edu.ucla.mbi.util.context.*;
+import edu.ucla.mbi.util.struts.action.*;
 import edu.ucla.mbi.util.struts.interceptor.*;
 
 import org.apache.struts2.ServletActionContext;

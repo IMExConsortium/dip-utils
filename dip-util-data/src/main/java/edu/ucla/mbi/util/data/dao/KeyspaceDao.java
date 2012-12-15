@@ -13,7 +13,7 @@ package edu.ucla.mbi.util.data.dao;
 import java.util.*;
 import edu.ucla.mbi.util.data.*;
 
-public interface KeyspaceDAO {
+public interface KeyspaceDao {
 
     public Keyspace getKeyspace( String name );
     public List<Keyspace> getKeyspaceList();

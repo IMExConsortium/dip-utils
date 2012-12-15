@@ -13,7 +13,7 @@ package edu.ucla.mbi.util.data.dao;
 import java.util.*;
 import edu.ucla.mbi.util.data.*;
 
-public interface JournalDAO {
+public interface JournalDao {
 
     public Journal getJournal( int id );
     public Journal getJournal( String title );

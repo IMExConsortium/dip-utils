@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
 
 /*==============================================================================
  * $HeadURL::                                                                  $

@@ -13,7 +13,7 @@ package edu.ucla.mbi.util.data.dao;
 import java.util.*;
 import edu.ucla.mbi.util.data.*;
 
-public interface AdiDAO {
+public interface AdiDao {
 
     public AttachedDataItem getAdi( int id );
     public List<AttachedDataItem> getAdiListByRoot( DataItem root );

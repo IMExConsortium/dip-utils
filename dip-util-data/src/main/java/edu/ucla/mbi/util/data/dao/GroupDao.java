@@ -1,9 +1,9 @@
-package edu.ucla.mbi.util.dao;
+package edu.ucla.mbi.util.data.dao;
 
 /* =========================================================================
- # $HeadURL::                                                              $
- # $Id::                                                                   $
- # Version: $Rev::                                                         $
+ # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/dip-util/trunk/d#$
+ # $Id:: GroupDao.java 497 2009-08-29 22:21:45Z lukasz                     $
+ # Version: $Rev:: 497                                                     $
  #==========================================================================
  #
  # GroupDao 
