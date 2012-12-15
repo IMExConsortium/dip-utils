@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.interceptor;
+package edu.ucla.mbi.util.struts.interceptor;
 
 /* =============================================================================
  * $HeadURL::                                                                  $

@@ -11,7 +11,7 @@
   <parent>
     <artifactId>dip-util</artifactId>
     <groupId>edu.ucla.mbi.dip</groupId>
-    <version>0.02</version> 
+    <version>0.03</version> 
   </parent>
 
   <build>

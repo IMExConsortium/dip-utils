@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
  * $HeadURL::                                                              $
@@ -6,7 +6,7 @@ package edu.ucla.mbi.util.struts2.action;
  * Version: $Rev::                                                         $
  *==========================================================================
  *
- * LoginSupport action
+ * UserSupport action
  *                
  *
  ======================================================================== */
@@ -30,12 +30,18 @@ import java.io.*;
 
 import org.json.*;
 
-import edu.ucla.mbi.util.*;
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.data.dao.*;
+import edu.ucla.mbi.util.struts.interceptor.*;
 
-public abstract class DownloadSupport extends PortalSupport {
-    
+public abstract class UserSupport extends PortalSupport {
+
+    public final String ACTIVATE = "activate";
     public final String HOME = "home";
+    public final String UEDIT = "uedit";
+    public final String LOGF = "logf";
+    public final String REGF = "regf";
+
         
     //---------------------------------------------------------------------
     // AuthenticateAware implementation
@@ -52,7 +58,6 @@ public abstract class DownloadSupport extends PortalSupport {
 	return this.user;
     }
     
-
     //---------------------------------------------------------------------
     // UserSupport 
     //------------
@@ -67,7 +72,55 @@ public abstract class DownloadSupport extends PortalSupport {
 	return operation;
     }
     
+    private String activationKey = "";
+    
+    public void setAk( String key ) {
+	this.activationKey = key;
+    }
+
+    public String getAk(){
+	return this.activationKey;
+    }
+
     //---------------------------------------------------------------------
 
-    abstract public String execute() throws Exception;
+    public String execute() throws Exception{
+	
+	Log log = LogFactory.getLog( UserSupport.class );
+        log.info( " execute action: op=" + operation );
+
+	if ( operation != null & operation.equalsIgnoreCase( "reg" ) ) {
+	    return register( user );
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "act" ) ) {
+	    return activate( user );
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "edit" ) ) {
+	    return edit();
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "login" ) ) {
+	    return login( user );
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "logout" ) ) {
+	    return logout();
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "regf" ) ) {
+	    return REGF;
+	}
+	if ( operation != null & operation.equalsIgnoreCase( "logf" ) ) {
+	    return LOGF;
+	}
+	return LOGF;
+    }
+
+    public abstract String register( User user );
+
+    public abstract String activate( User user );
+
+    public abstract String edit();
+
+    public abstract String login( User user );
+
+    public abstract String logout();
+
 }

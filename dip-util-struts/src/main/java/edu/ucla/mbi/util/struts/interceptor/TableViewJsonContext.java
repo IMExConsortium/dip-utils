@@ -1,16 +1,16 @@
-package edu.ucla.mbi.util.struts2.interceptor;
+package edu.ucla.mbi.util.struts.interceptor;
 
 /* =============================================================================
-   # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#  $
-   # $Id:: TableViewContext.java 638 2009-10-19 00:17:18Z lukasz               $
-   # Version: $Rev:: 638                                                       $
-   #============================================================================
-   #                                                                           $
-   # TableViewContext: generates json table configuration information          $
-   #         utilized by classes implementing TableViewAware interface         $
-   #         intercepted by TableViewInterceptor                               $
-   #                                                                           $
-   #========================================================================= */
+ * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#    $
+ * $Id:: TableViewContext.java 638 2009-10-19 00:17:18Z lukasz                 $
+ * Version: $Rev:: 638                                                         $
+ *==============================================================================
+ *                                                                             $
+ * TableViewContext: generates json table configuration information            $
+ *         utilized by classes implementing TableViewAware interface           $
+ *         intercepted by TableViewInterceptor                                 $
+ *                                                                             $
+ *=========================================================================== */
 
 import java.util.*;
 import java.io.*;
@@ -19,7 +19,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.json.*;
-import edu.ucla.mbi.util.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.context.*;
 
 public class TableViewJsonContext extends TableViewContext{
     
@@ -161,24 +162,14 @@ public class TableViewJsonContext extends TableViewContext{
                 String value = (String) colDef.get( "value" );
                 String type  = (String) colDef.get( "type" );
                 String list  = (String) colDef.get( "list" );
-                String formatter  = (String) colDef.get( "formatter" );
+                
                 String show  = (String) colDef.get( "show" );
-                String width = (String) colDef.get( "width" );
-                String minWidth = (String) colDef.get( "min-width" );
-                String maxAutoWidth = (String) colDef.get( "max-auto-width" );
-                String resize = (String) colDef.get( "resize" );
                 String hidden  = (String) colDef.get( "hidden" );
                 String sort  = (String) colDef.get( "sort" );
                 String select= (String) colDef.get( "select" );
-
-                String filter= (String) colDef.get( "filter" );
-                String filterType= (String) colDef.get( "filter-type" );
-                String filterLabel= (String) colDef.get( "filter-label" );
-                String filterValue= (String) colDef.get( "filter-value" );
                 
                 String url   = (String) colDef.get( "url" );
-                String urlvalue   = (String) colDef.get( "urlvalue" );
-                
+                String urlvalue   = (String) colDef.get( "urlvalue" );                
   
                 // default field: column number  
                 if ( field == null || field.length() == 0 ) {
@@ -186,9 +177,7 @@ public class TableViewJsonContext extends TableViewContext{
                 }
                 // default type: text (url pattern overrides to url)
                 if ( type == null || type.length() == 0 ) {
-
-                    type = "text";
-                
+                    type = "text";               
                     if ( url != null && url.length() > 0 ) {
                         type = "url";
                     }
@@ -216,61 +205,37 @@ public class TableViewJsonContext extends TableViewContext{
                     Map column = new HashMap();
                     Map fpar = new HashMap();
 
+
+                    for( Iterator j = colDef.keySet().iterator(); j.hasNext(); ){
+
+                        String jkey = (String) j.next();
+                        String jvalue = (String) colDef.get(jkey);
+
+                        if( jvalue != null && !jkey.equalsIgnoreCase( "show" )
+                            && !jkey.equalsIgnoreCase( "hidden" )
+                            && !jkey.equalsIgnoreCase( "sort" )
+                            && !jkey.equalsIgnoreCase( "select" )
+                            && !jkey.equalsIgnoreCase( "field" )
+                            && !jkey.equalsIgnoreCase( "name" ) ){
+
+                            if( jvalue.equalsIgnoreCase( "true" )
+                                || jvalue.equalsIgnoreCase( "false" ) ){
+                                column.put( jkey, jvalue.equalsIgnoreCase( "true" ) );
+                            } else {
+                                column.put( jkey, jvalue);
+                            }
+
+                        }
+                    }
+
                     column.put( "name", field ) ; //String.valueOf( cid-1 ));
                     column.put( "label", name );
                     
-                    if ( width != null && width.length() > 0 ) {
-                        column.put( "width", width );
-                    }
-                    
-                    if ( minWidth != null && minWidth.length() > 0 ) {
-                        column.put( "min-width", minWidth );
-                    }
-                    if ( maxAutoWidth != null && 
-                         maxAutoWidth.length() > 0 ) {
-                        column.put( "max-auto-width", maxAutoWidth );
-                    }
-                    
-                    if ( resize != null && 
-                         resize.equalsIgnoreCase( "true" ) ) {
-                        column.put( "resizeable", 
-                                    resize.equalsIgnoreCase( "true" ) );
-                    }
-                    if ( sort != null && 
-                         sort.equalsIgnoreCase( "true" ) ) {
-                        column.put( "sortable", 
-                                    sort.equalsIgnoreCase( "true" ) );
-                    }
-                    
-                    if ( formatter != null && formatter.length() > 0 ) {
-                        column.put( "formatter", formatter );
-                    }
-    
                     if ( hidden != null && 
                          hidden.equalsIgnoreCase( "true" ) ) {
                         column.put( "hidden", 
                                     hidden.equalsIgnoreCase( "true" ) );
                     }
-                    
-                    if ( filter != null && 
-                         filter.equalsIgnoreCase( "true" ) ) {
-                        
-                        column.put( "filter",
-                                    filter.equalsIgnoreCase( "true" ) );
-                        
-                        if ( filterType != null && 
-                             filterType.length() > 0 ) {
-                            column.put( "filter-type", filterType );
-                        }
-                        if ( filterLabel != null && 
-                             filterLabel.length() > 0 ) {
-                            column.put( "filter-label", filterLabel );
-                        }
-                        if ( filterValue != null && 
-                             filterValue.length() > 0 ) {
-                            column.put( "filter-value", filterValue );
-                        }
-                    } 
                     
                     columns.add( column );
                     //filters.add( fpar );

@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.interceptor;
+package edu.ucla.mbi.util.struts.interceptor;
 
 /* =========================================================================
  # $HeadURL::                                                              $
@@ -12,7 +12,8 @@ package edu.ucla.mbi.util.struts2.interceptor;
  #======================================================================= */
 
 import java.util.*;
-import edu.ucla.mbi.util.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.context.*;
 
 import javax.servlet.ServletContext;
 

@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
 
 /* =============================================================================
  * $HeadURL::                                                                  $
@@ -30,8 +30,9 @@ import java.io.*;
 
 import org.json.*;
 
-import edu.ucla.mbi.util.*;
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.context.*;
+import edu.ucla.mbi.util.struts.interceptor.*;
 
 public abstract class EditSupport extends PortalSupport {
 

@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
  * $HeadURL::                                                              $
@@ -14,14 +14,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory; 
 
 import java.util.*;
-//import java.util.concurrent.*;
-//import java.io.*;
 
-//import org.json.*;
-
-import edu.ucla.mbi.util.*;
-import edu.ucla.mbi.util.dao.*;
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.data.dao.*;
+import edu.ucla.mbi.util.struts.interceptor.*;
 
 public abstract class UserMgrSupport extends ManagerSupport {
     

@@ -12,15 +12,21 @@
   <parent>
     <groupId>edu.ucla.mbi.dip</groupId>
     <artifactId>dip-util</artifactId>
-    <version>0.02</version> 
+    <version>0.03</version> 
   </parent>
 
   <dependencies>
 
     <dependency>
       <groupId>edu.ucla.mbi.dip</groupId>
+      <artifactId>dip-util-data</artifactId>
+      <version>0.03</version> 
+    </dependency>
+
+    <dependency>
+      <groupId>edu.ucla.mbi.dip</groupId>
       <artifactId>dip-util-security</artifactId>
-      <version>0.02</version> 
+      <version>0.03</version> 
     </dependency>
 
     <dependency>

@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
  * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#$
@@ -17,9 +17,10 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.io.*;
 
-import edu.ucla.mbi.util.*;
-import edu.ucla.mbi.util.dao.*;
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.data.dao.*;
+import edu.ucla.mbi.util.context.*;
+import edu.ucla.mbi.util.struts.interceptor.*;
 
 public abstract class ManagerSupport extends PortalSupport 
     implements AclAware {

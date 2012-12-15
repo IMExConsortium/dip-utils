@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.action;
+package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
  * $HeadURL::                                                              $
@@ -30,16 +30,19 @@ import java.io.*;
 
 import org.json.*;
 
-import edu.ucla.mbi.util.*;
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.context.*;
+import edu.ucla.mbi.util.struts.interceptor.*;
 
-public abstract class LoginSupport extends PortalSupport {
+public abstract class DownloadSupport extends PortalSupport {
     
+    public final String HOME = "home";
+        
     //---------------------------------------------------------------------
     // AuthenticateAware implementation
     //---------------------------------
     
-    User user = null;
+    private User user = null;
 
     public void setUser( User user ) {
 	this.user = user;
@@ -50,9 +53,22 @@ public abstract class LoginSupport extends PortalSupport {
 	return this.user;
     }
     
+
+    //---------------------------------------------------------------------
+    // UserSupport 
+    //------------
+
+    private String operation = "" ;
+    
+    public void setOp( String op ) {
+	this.operation = op;
+    }
+
+    public String getOp(){
+	return operation;
+    }
     
     //---------------------------------------------------------------------
 
-    public abstract String execute() throws Exception;
-
+    abstract public String execute() throws Exception;
 }

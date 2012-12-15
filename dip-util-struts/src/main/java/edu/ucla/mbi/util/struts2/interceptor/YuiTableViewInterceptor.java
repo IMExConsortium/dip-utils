@@ -161,9 +161,7 @@ public class YuiTableViewInterceptor extends TableViewInterceptor {
     //--------------------------------------------------------------------------    
    
     private Map buildModelView( Map viewDef ) {
-
-        // NOTE: not complete - some fields are not passed (LS)
-                                        
+        
         // prepare and return table/grid layout info
         //------------------------------------------
         Log log = LogFactory.getLog( this.getClass() );
@@ -179,9 +177,42 @@ public class YuiTableViewInterceptor extends TableViewInterceptor {
             Map col = (Map) ii.next();
             Map newCol = new HashMap();
             cm.add( newCol );
+            
+            for( Iterator i = col.keySet().iterator(); i.hasNext(); ){
+
+                String key = (String) i.next();
+                Object  value =  col.get( key );
+
+                if( key.equals("width") ){
+                    String svalue = (String) value;
+                    try {
+                        svalue = svalue.replaceAll("[^0-9]","");
+                    } catch ( PatternSyntaxException pse ) {
+                        // should not happen
+                    }
+                    
+                    if ( svalue.length() > 0 ) {
+                        try {
+                            int width = Integer.parseInt( svalue );
+                            newCol.put( "width", width );
+                        } catch (NumberFormatException  nfe ){
+                            // ignore
+                        }
+                    }
+                } else {
+                    if( !key.equals( "name") ){
+                        newCol.put( key, value );
+                    } else {
+                        newCol.put( "key", value );
+                    }
+                }
+            }
+            /*
             if ( col.get( "name" ) != null ) {
                 newCol.put( "key", col.get( "name" ) );
             }
+
+            
             if ( col.get( "label" ) != null ) {
                 newCol.put( "label", col.get( "label" ) );
             }
@@ -216,6 +247,7 @@ public class YuiTableViewInterceptor extends TableViewInterceptor {
             if ( col.get( "filter" ) != null ) {
                 newCol.put( "filter", col.get( "filter" ) );
             }
+            */
         }
 
         return mv;
