@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.action;
 
 /* =============================================================================
- * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/dip-util/trunk/dip-u#$
- * $Id:: PortalSupport.java 1344 2010-11-23 01:24:45Z lukasz                   $
- * Version: $Rev:: 1344                                                        $
+ * $HeadURL::                                                                  $
+ * $Id::                                                                       $
+ * Version: $Rev::                                                             $
  *==============================================================================
  *                                                                             $
  * PortalSupport action                                                        $

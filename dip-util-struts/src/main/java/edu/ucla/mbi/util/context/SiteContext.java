@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util.context;
 
 /* =============================================================================
- # $Id:: SiteContext.java 1304 2010-11-06 19:10:51Z lukasz                     $
- # Version: $Rev:: 1304                                                        $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #                                                                             $
  # SiteContext: JSON-based configuration od sites                              $

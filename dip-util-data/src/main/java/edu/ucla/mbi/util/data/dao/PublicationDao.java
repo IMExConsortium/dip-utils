@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.data.dao;
 
 /* =========================================================================
- # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#$
- # $Id:: UserDao.java 429 2009-08-14 01:44:32Z lukasz                      $
- # Version: $Rev:: 429                                                     $
+ # $HeadURL::                                                              $
+ # $Id::                                                                   $
+ # Version: $Rev::                                                         $
  #==========================================================================
  #
  # PublicationDAO 

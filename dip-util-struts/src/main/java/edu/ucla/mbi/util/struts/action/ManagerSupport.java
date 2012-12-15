@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
- * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#$
- * $Id:: GroupMgrSupport.java 435 2009-08-15 01:34:09Z lukasz              $
- * Version: $Rev:: 435                                                     $
+ * $HeadURL::                                                              $
+ * $Id::                                                                   $
+ * Version: $Rev::                                                         $
  *==========================================================================
  *
  * ManagerSupport action

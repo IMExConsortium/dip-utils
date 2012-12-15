@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util.context;
 
 /* =============================================================================
- # $Id:: KeyspaceContext.java 905 2010-02-07 14:35:53Z lukasz                  $
- # Version: $Rev:: 905                                                         $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #                                                                             $
  # JsonContext: JSON-based workflow configuration                              $

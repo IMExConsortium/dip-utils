@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util.context;
 
 /* ========================================================================
- # $Id:: UserContext.java 2271 2012-05-25 08:08:21Z lukasz                $
- # Version: $Rev:: 2271                                                   $
+ # $Id::                                                                  $
+ # Version: $Rev::                                                        $
  #=========================================================================
  #                                                                        $
  # JsonContext: JSON-based configuration                                  $

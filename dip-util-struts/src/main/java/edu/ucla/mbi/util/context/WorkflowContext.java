@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util.context;
 
 /* ========================================================================
- # $Id:: WorkflowContext.java 1729 2011-05-13 19:15:59Z lukasz            $
- # Version: $Rev:: 1729                                                   $
+ # $Id::                                                                  $
+ # Version: $Rev::                                                        $
  #=========================================================================
  #                                                                        $
  # JsonContext: JSON-based workflow configuration                         $

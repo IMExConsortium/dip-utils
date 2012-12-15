@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util.context;
 
 /* =============================================================================
- # $Id:: ActionContext.java 2189 2012-04-21 17:59:45Z lukasz                   $
- # Version: $Rev:: 2189                                                        $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #                                                                             $
  # ActionContext: global action configration                                   $

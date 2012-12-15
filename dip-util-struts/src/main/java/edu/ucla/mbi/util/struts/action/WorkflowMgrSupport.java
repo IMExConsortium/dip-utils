@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.action;
                                                                             
 /* =========================================================================
- * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#$
- * $Id:: UserMgrSupport.java 475 2009-08-21 23:46:54Z lukasz               $
- * Version: $Rev:: 475                                                     $
+ * $HeadURL::                                                              $
+ * $Id::                                                                   $
+ * Version: $Rev::                                                         $
  *==========================================================================
  *
  * WorkflowMgrSupport action

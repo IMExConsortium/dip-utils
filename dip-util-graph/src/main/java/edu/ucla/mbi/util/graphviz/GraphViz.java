@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.graphviz;
 
 /* =========================================================================
- # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-portal#$
- # $Id:: DipRole.java 441 2009-08-16 16:42:04Z lukasz                      $
- # Version: $Rev:: 441                                                     $
+ # $HeadURL::                                                              $
+ # $Id::                                                                   $
+ # Version: $Rev::                                                         $
  #==========================================================================
  #
  #  GraphViz - Java interface to http://www.graphviz.org/ 

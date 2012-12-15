@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.interceptor;
 
 /* =============================================================================
- * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#    $
- * $Id:: TableViewContext.java 638 2009-10-19 00:17:18Z lukasz                 $
- * Version: $Rev:: 638                                                         $
+ * $HeadURL::                                                                  $
+ * $Id::                                                                       $
+ * Version: $Rev::                                                             $
  *==============================================================================
  *                                                                             $
  * TableViewContext: generates json table configuration information            $

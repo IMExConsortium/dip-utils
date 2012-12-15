@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.interceptor;
 
 /* ========================================================================
- # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/dip-util/trunk/#$
- # $Id:: TableViewAware.java 1304 2010-11-06 19:10:51Z lukasz             $
- # Version: $Rev:: 1304                                                   $
+ # $HeadURL::                                                             $
+ # $Id::                                                                  $
+ # Version: $Rev::                                                        $
  #=========================================================================
  #                                                                        $
  # TableViewAware interface: must be implemented by classes interceptable $

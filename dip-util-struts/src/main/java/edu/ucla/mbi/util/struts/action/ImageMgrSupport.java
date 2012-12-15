@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.action;
 
 /* =============================================================================
- * $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/dip-util/trunk/dip-u#$
- * $Id:: ImageMgrSupport.java 1353 2010-11-24 02:14:50Z lukasz                 $
- * Version: $Rev:: 1353                                                        $
+ * $HeadURL::                                                                  $
+ * $Id::                                                                       $
+ * Version: $Rev::                                                             $
  *==============================================================================
  *                                                                             $
  * ImageMgrSupport - image handling: upload/remove/etc                         $

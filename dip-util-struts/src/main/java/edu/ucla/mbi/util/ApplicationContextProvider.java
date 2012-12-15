@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util;
 
 /* =============================================================================
- # $Id:: PsqPortImpl.java 253 2012-04-10 15:28:27Z lukasz                      $
- # Version: $Rev:: 253                                                         $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #
  # ApplicationContextProvider: Spring-based ApplicationContext access

@@ -1,8 +1,8 @@
 package edu.ucla.mbi.util;
 
 /* =============================================================================
- # $Id:: JsonContext.java 861 2010-01-19 14:02:13Z lukasz                      $
- # Version: $Rev:: 861                                                         $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #                                                                             $
  # PortalContext: JSON-based portal configuration                              $
