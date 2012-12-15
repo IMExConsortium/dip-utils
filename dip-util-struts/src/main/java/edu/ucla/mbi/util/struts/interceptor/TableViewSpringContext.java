@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util.struts2.interceptor;
+package edu.ucla.mbi.util.struts.interceptor;
 
 /* =========================================================================
    # $HeadURL:: https://lukasz@imex.mbi.ucla.edu/svn/dip-ws/trunk/dip-util-s#$

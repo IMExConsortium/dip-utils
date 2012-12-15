@@ -29,11 +29,12 @@ import java.io.*;
 
 import org.json.*;
 
-import edu.ucla.mbi.util.data.*;
-import edu.ucla.mbi.util.data.dao.*;
 import edu.ucla.mbi.util.context.*;
 
-import edu.ucla.mbi.util.struts2.interceptor.*;
+import edu.ucla.mbi.util.data.*;
+import edu.ucla.mbi.util.data.dao.*;
+
+import edu.ucla.mbi.util.struts.interceptor.*;
 
 public abstract class RoleMgrSupport extends ManagerSupport {
     
