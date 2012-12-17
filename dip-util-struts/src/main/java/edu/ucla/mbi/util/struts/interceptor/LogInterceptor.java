@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.interceptor;
 
 /* =============================================================================
- # $HeadURL:: https://imex.mbi.ucla.edu/svn/central/trunk/icentral/src/main/ja#$
- # $Id:: LogInterceptor.java 217 2011-06-30 14:11:44Z lukasz                   $
- # Version: $Rev:: 217                                                         $
+ # $HeadURL::                                                                  $
+ # $Id::                                                                       $
+ # Version: $Rev::                                                             $
  #==============================================================================
  #
  # LogInterceptor: controlls access to actions/operations

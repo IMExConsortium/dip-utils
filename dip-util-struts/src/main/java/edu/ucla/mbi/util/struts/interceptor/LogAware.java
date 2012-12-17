@@ -1,9 +1,9 @@
 package edu.ucla.mbi.util.struts.interceptor;
 
 /* =========================================================================
- # $HeadURL:: https://imex.mbi.ucla.edu/svn/central/trunk/icentral/src/mai#$
- # $Id:: LogAware.java 216 2011-06-25 21:18:52Z lukasz                     $
- # Version: $Rev:: 216                                                     $
+ # $HeadURL::                                                              $
+ # $Id::                                                                   $
+ # Version: $Rev::                                                         $
  #==========================================================================
  #
  # AclAware interface: must be implemented by classes interceptable 
