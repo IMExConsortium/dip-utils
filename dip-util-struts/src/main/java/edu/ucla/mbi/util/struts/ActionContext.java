@@ -1,4 +1,4 @@
-package edu.ucla.mbi.util;
+package edu.ucla.mbi.util.struts;
 
 /* =============================================================================
  # $Id::                                                                       $

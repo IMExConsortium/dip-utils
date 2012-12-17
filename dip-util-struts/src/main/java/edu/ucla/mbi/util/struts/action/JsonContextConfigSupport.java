@@ -18,7 +18,7 @@ import java.io.*;
 
 import org.json.JSONObject;
 
-import edu.ucla.mbi.util.JsonContext;
+import edu.ucla.mbi.util.context.JsonContext;
 
 public abstract class JsonContextConfigSupport extends ManagerSupport {
 
