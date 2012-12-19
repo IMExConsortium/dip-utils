@@ -135,15 +135,16 @@ public class JsonContext {
 	    	log.info( "JSON printing error: " + jex.toString());
 		}
     }
-    
+
+    /*   
     public void writeJsonConfigDef( String cpath ) throws IOException {
         
         File sf = new File( cpath );
         PrintWriter spw = new PrintWriter( sf );
-        
         writeJsonConfigDef(spw);
     }
-    
+    */
+
     //--------------------------------------------------------------------------
     // java.util -> JSON conversion
     //-----------------------------

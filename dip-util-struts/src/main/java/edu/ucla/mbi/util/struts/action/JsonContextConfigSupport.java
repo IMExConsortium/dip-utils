@@ -343,18 +343,21 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
             .get( "json-config" );
         
         log.info( "saveJsonContext: jsonConfigFile=" + jsonConfigFile );
-
+        
         String srcPath =
             getServletContext().getRealPath( jsonConfigFile );
+        log.info( " srcPath=" + srcPath );
         
-        log.info( "saveJsonContext:  srcPath=" + srcPath );
+        File sf = new File( srcPath );
+        PrintWriter spw = new PrintWriter( sf );
         
         try { 
-            jsonContext.writeJsonConfigDef( srcPath  );
+            jsonContext.writeJsonConfigDef( spw );
+            spw.close();
         } catch ( Exception ex ) {
-            throw ex;         
+            throw ex;
         }
-
+        
         log.info( "saveNativeServerConfigure: after writing to json file. " ); 
     }
         
