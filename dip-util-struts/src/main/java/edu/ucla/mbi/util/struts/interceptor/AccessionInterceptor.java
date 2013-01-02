@@ -38,7 +38,7 @@ public class AccessionInterceptor implements Interceptor{
 	while( skip && cint < aint.length ) {
 	    Class cc = aint[cint];
 	    if( cc.getCanonicalName()
-                .equals( "edu.ucla.mbi.util.struts2.interceptor.AccessionAware" ) 
+                .equals( "edu.ucla.mbi.util.struts.interceptor.AccessionAware" ) 
                 ) {
 		skip = false;
 	    }
