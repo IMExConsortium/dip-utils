@@ -17,8 +17,7 @@ import org.apache.commons.logging.LogFactory;
 import java.util.Map;
 import java.util.HashMap;
 
-import net.spy.memcached.spring.MemcachedClientFactoryBean;
-import net.spy.memcached.MemcachedClient;
+import edu.ucla.mbi.util.cache.CacheClient;
 
 public class ActionContext {
 
@@ -26,7 +25,7 @@ public class ActionContext {
     private boolean isAgentOn = true;
 
     private Map config = null;
-    private MemcachedClientFactoryBean mcf = null;
+    private CacheClient cacheClient = null;
     
     public ActionContext() {}
     
@@ -113,25 +112,11 @@ public class ActionContext {
 
     //--------------------------------------------------------------------------
     
-    MemcachedClient mcc;
-
-    /*
-    public void setMemcachedClientFactory( MemcachedClientFactoryBean mcf ){
-        this.mcf = mcf;
+    public void setCacheClient( CacheClient cacheClient ){
+        this.cacheClient = cacheClient;
     }
-
-    public MemcachedClientFactoryBean getMemcachedClientFactory(){
-        return mcf;
+    
+    public CacheClient getCacheClient() throws Exception{
+        return cacheClient;
     }
-    */
-
-    public void setMemcachedClient( MemcachedClient mcc ){
-        this.mcc = mcc;
-    }
-
-
-    public MemcachedClient getMemcachedClient() throws Exception{
-        return mcc; // (MemcachedClient) mcf.getObject();
-    }
-
 }

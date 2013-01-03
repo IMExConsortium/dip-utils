@@ -1,0 +1,26 @@
+DIP-UTIL: NOTES
+---------------
+
+$HeadURL$
+$Id$ 
+ 
+SVN repository
+--------------
+
+dip-ws repository is located at:
+
+  https://imex.mbi.ucla.edu/svn/dip-util
+
+Source code style
+-----------------
+                                                                           
+ - when adding new java files, use etc/template.java to build file headers
+ 
+ - run:  
+     svn propset svn:keywords "Date Author Id Rev HeadURL" file.foo
+   on every added file so that the header content is updated during 
+   svn check-ins/check-outs
+
+ - do NOT use tab charcters to format source files (set your editor accordingly)
+ - try to keep lines shorter than 80 characters
+
