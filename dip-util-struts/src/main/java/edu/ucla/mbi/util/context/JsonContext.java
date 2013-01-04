@@ -24,7 +24,19 @@ public class JsonContext {
 
     Map<String,Object> config;
 
+    List<ContextListener> clList = new ArrayList<ContextListener>();
+    
     private static final int BUFFER_SIZE = 4096;
+
+    //--------------------------------------------------------------------------
+
+    public void addContextUpdateListener( ContextListener listener ){
+        clList.add( listener );
+    }
+
+    public void removeContextUpdateListener( ContextListener listener ){
+        clList.remove( listener );
+    }
 
     //--------------------------------------------------------------------------
 
@@ -114,6 +126,15 @@ public class JsonContext {
 	} catch ( JSONException jex ) {
 	    log.info( "parsing error: " + jex.toString() );
 	}
+        
+        if( clList != null ){
+            for( Iterator<ContextListener> icl = clList.iterator(); 
+                 icl.hasNext(); ){ 
+                
+                ContextListener cc = icl.next();
+                cc.contextUpdate( this );
+            }
+        }
     }
     
     public void readJsonConfigDef( String cpath ) throws IOException {        
