@@ -331,6 +331,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
 
         if( updateJson ) {
             saveJsonContext();
+            jsonContext.updateNotify();
         } 
             
         return SUCCESS;

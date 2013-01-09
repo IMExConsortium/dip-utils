@@ -38,6 +38,18 @@ public class JsonContext {
         clList.remove( listener );
     }
 
+    public void updateNotify(){
+
+        if( clList != null ){
+            for( Iterator<ContextListener> icl = clList.iterator(); 
+                 icl.hasNext(); ){ 
+                
+                ContextListener cc = icl.next();
+                cc.contextUpdate( this );
+            }
+        } 
+    }
+
     //--------------------------------------------------------------------------
 
     public void setConfig( Map<String,Object> config ) {
@@ -99,33 +111,36 @@ public class JsonContext {
 
     public void readJsonConfigDef( InputStream is ) {
 
-	    Log log = LogFactory.getLog( JsonContext.class );
+        Log log = LogFactory.getLog( JsonContext.class );
+        
+        StringBuffer sb = new StringBuffer();
+        char[] buffer = new char[BUFFER_SIZE];
+        
+        try {
+            InputStreamReader ir = new InputStreamReader( is );
+            int len =0;
+            while ( (len = ir.read( buffer, 0, BUFFER_SIZE ) ) >= 0 ) {
+                sb.append( buffer , 0, len);
+            }
+            
+        } catch ( Exception e ) {
+            log.info( e.toString() );
+        }
+        
+        String jsonConfigDef = sb.toString();
+        //log.info( "unparsed=" + jsonConfigDef);
+        try {
+            JSONObject jo = new JSONObject( jsonConfigDef );
+            //log.info( "parsed: " +jo.toString() );
+            jsonConfigObject = jo;
+            jsonConfigString = jo.toString();
+            jsonConfigUtil = json2util( jo );
 
-	    StringBuffer sb = new StringBuffer();
-	    char[] buffer = new char[BUFFER_SIZE];
+            this.updateNotify();
 
-	    try {
-	        InputStreamReader ir = new InputStreamReader( is );
-	        int len =0;
-	        while ( (len = ir.read( buffer, 0, BUFFER_SIZE ) ) >= 0 ) {
-		        sb.append( buffer , 0, len);
-	        }
-
-	    } catch ( Exception e ) {
-	        log.info( e.toString() );
-	    }
-
-	    String jsonConfigDef = sb.toString();
-	    //log.info( "unparsed=" + jsonConfigDef);
-	    try {
-	        JSONObject jo = new JSONObject( jsonConfigDef );
-	        //log.info( "parsed: " +jo.toString() );
-	        jsonConfigObject = jo;
-	        jsonConfigString = jo.toString();
-	        jsonConfigUtil = json2util( jo );
-	    } catch ( JSONException jex ) {
-	        log.info( "parsing error: " + jex.toString() );
-	    }
+        } catch ( JSONException jex ) {
+            log.info( "parsing error: " + jex.toString() );
+        }        
     }
     
     public void readJsonConfigDef( String cpath ) throws IOException {        
@@ -147,14 +162,6 @@ public class JsonContext {
 	    	log.info( "JSON printing error: " + jex.toString());
 		}
 
-        if( clList != null ){
-            for( Iterator<ContextListener> icl = clList.iterator(); 
-                 icl.hasNext(); ){ 
-                
-                ContextListener cc = icl.next();
-                cc.contextUpdate( this );
-            }
-        } 
     }
 
     /*   
