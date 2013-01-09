@@ -202,7 +202,7 @@ public abstract class DataItem implements DataAclAware {
             //------------
             
             if ( ownerMatch != null ) {
-                if ( ownerMatch.contains( getOwner() ) ) {
+                if ( ownerMatch.contains( getOwner().getLogin() ) ) {
                     log.info( "ACL Test: owner matched" );
                     return true;
                 }
@@ -218,7 +218,7 @@ public abstract class DataItem implements DataAclAware {
                      oi.hasNext(); ) {
                     
                     String usr = oi.next().getLogin();
-                    if ( adminUserMatch.contains( usr ) ) {
+                    if ( adminUserMatch.contains( usr.getLogin() ) ) {
                         log.info( "ACL Test: ausr matched" );
                         return true;
                     }

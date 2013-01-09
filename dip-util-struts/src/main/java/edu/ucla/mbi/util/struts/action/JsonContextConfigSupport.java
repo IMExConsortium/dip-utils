@@ -317,6 +317,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
                 if( currentObj instanceof Map ) {
                     ((Map)currentObj).remove( newKey );
                     updateJson = true;
+
                 }
 
                 if( currentObj instanceof List ) {
@@ -325,6 +326,7 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
                     ((List)currentObj).remove( index );
                     log.info( "after remove index. " );
                     updateJson = true;
+
                 }
             }
         }
