@@ -218,7 +218,7 @@ public abstract class DataItem implements DataAclAware {
                      oi.hasNext(); ) {
                     
                     String usr = oi.next().getLogin();
-                    if ( adminUserMatch.contains( usr.getLogin() ) ) {
+                    if ( adminUserMatch.contains( usr ) ) {
                         log.info( "ACL Test: ausr matched" );
                         return true;
                     }
