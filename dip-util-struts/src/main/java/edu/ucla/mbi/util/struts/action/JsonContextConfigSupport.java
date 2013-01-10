@@ -67,15 +67,19 @@ public abstract class JsonContextConfigSupport extends ManagerSupport {
 
         log.info( " JsonContextConfigAction execute..." );
         
-        //*** read json file
-        String jsonConfigFile =
-            (String) jsonContext.getConfig().get( "json-config" );
-        String srcPath = getServletContext().getRealPath( jsonConfigFile );
-
-        try {
-            jsonContext.readJsonConfigDef( srcPath );
-        } catch ( Exception ex ) {
-            throw ex;
+        if( jsonContext.getJsonConfig() == null || getOp() == null ) {
+            //*** read json file
+            String jsonConfigFile =
+                (String) jsonContext.getConfig().get( "json-config" );
+            
+            String srcPath = 
+                getServletContext().getRealPath( jsonConfigFile );
+            
+            try {
+                jsonContext.readJsonConfigDef( srcPath );
+            } catch ( Exception ex ) {
+                throw ex;
+            }
         }
         
         contextMap = jsonContext.getJsonConfig();
