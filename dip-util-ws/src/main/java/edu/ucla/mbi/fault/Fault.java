@@ -42,8 +42,8 @@ public class Fault {
 
     public static Map<Integer, String> fault;
 
-    public static getMessage( int faultId ){
-        return Fault.fault.get(faultId);
+    public static String getMessage( int faultId ){
+        return Fault.fault.get( faultId );
     }
 
     static {
