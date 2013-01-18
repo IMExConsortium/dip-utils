@@ -13,12 +13,7 @@ package edu.ucla.mbi.util.cache;
 import net.spy.memcached.spring.MemcachedClientFactoryBean;
 import net.spy.memcached.MemcachedClient;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 public class McClient implements CacheClient {
-
-    private Log log = LogFactory.getLog( McClient.class );
 
     // configuration properties
     //-------------------------
@@ -43,22 +38,12 @@ public class McClient implements CacheClient {
     // CacheClient implementation
     //---------------------------
 
-    public Object fetch( String id ) {
-        try {
-            return mcf.get( prefix + id );
-        } catch ( Exception ex ) { 
-            log.warn( "memcache fetch got exception: " + ex.toString() );
-            return null;
-        }
+    public Object fetch( String id ) throws Exception {
+        return mcf.get( prefix + id );
     }
     
-    public void store( String id, Object obj ) {
-        try {
-            mcf.set( prefix + id, ttl, obj );
-        } catch ( Exception ex ) {
-            log.warn( "memcache store got exception: " + ex.toString() );
-            throw null;
-        }
+    public void store( String id, Object obj ) throws Exception {
+        mcf.set( prefix + id, ttl, obj );
     }
     
 }
