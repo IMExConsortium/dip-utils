@@ -35,7 +35,7 @@ public class Fault {
     public static final int REMOTE_VALIDATION = 25;
     public static final int VALIDATION_ERROR = 26;
     public static final int JSON_CONFIGURATION = 27;
-    public static final int MEMCACHE_FAULT = 29;
+    public static final int CACHE_FAULT = 29;
 
     public static final int AUTH = 98;
     public static final int UNKNOWN = 99;

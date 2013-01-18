@@ -50,6 +50,18 @@ public class JsonContext {
         } 
     }
 
+    public void fireUpdate(){
+
+        if( clList != null ){
+            for( Iterator<ContextListener> icl = clList.iterator(); 
+                 icl.hasNext(); ){ 
+                
+                ContextListener cc = icl.next();
+                cc.contextUpdate( this );
+            }
+        } 
+    }
+
     //--------------------------------------------------------------------------
 
     public void setConfig( Map<String,Object> config ) {

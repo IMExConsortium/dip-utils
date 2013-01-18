@@ -12,8 +12,10 @@ package edu.ucla.mbi.util.cache;
  *                                                                             $
  *=========================================================================== */
 
+import edu.ucla.mbi.fault.Fault;
+
 public interface CacheClient {
-    public Object fetch(String id);
-    public void store(String id, Object obj);
+    public Object fetch(String id) throws Fault;
+    public void store(String id, Object obj)throws Fault;
 }
 
