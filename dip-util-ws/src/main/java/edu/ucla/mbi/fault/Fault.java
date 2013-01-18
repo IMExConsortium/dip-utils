@@ -41,7 +41,11 @@ public class Fault {
     public static final int UNKNOWN = 99;
 
     public static Map<Integer, String> fault;
-    
+
+    public static getMessage( int faultId ){
+        return Fault.fault.get(faultId);
+    }
+
     static {
 
         fault = new HashMap<Integer, String>();
@@ -63,9 +67,11 @@ public class Fault {
         fault.put( 25, "remote validation" );
         fault.put( 26, "validation error" );
         fault.put( 27, "json configuration" );
-        fault.put( 29, "memcache client fault" );
+        fault.put( 29, "local cache fault" );
 
         fault.put( AUTH, "authentication error" );
         fault.put( UNKNOWN, "unrecognized error" );
     }
 }
+ 
+
