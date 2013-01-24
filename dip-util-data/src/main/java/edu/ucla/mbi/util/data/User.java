@@ -26,6 +26,8 @@ public class User implements Comparable {
     private String login = "";
     private String password = "";
     private String activationKey = "";
+
+    private String prefs = "";
     
     private boolean active = false;
     private boolean enabled = true;
@@ -152,6 +154,19 @@ public class User implements Comparable {
 
     public String getAffiliation() {
         return affiliation;
+    }
+
+    
+    //---------------------------------------------------------------------
+    // account prefereces
+    //-------------------
+
+    public void setPrefs( String prefs ) {
+	this.prefs = prefs;
+    }
+   
+    public String getPrefs() {
+	return prefs;
     }
 
     //---------------------------------------------------------------------
