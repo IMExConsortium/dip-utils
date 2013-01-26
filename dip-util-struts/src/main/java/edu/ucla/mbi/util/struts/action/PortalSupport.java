@@ -45,6 +45,7 @@ public abstract class PortalSupport extends ActionSupport
     public static final String JSON ="json";
     public static final String FILE ="file";
     public static final String URL ="url";
+    public static final String REDIRECT ="redirect";
 
     public static final String ACL_ERR ="acl_error";
     public static final String ACL_PGE ="acl_page";

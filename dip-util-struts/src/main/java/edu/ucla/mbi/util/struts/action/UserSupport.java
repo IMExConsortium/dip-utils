@@ -41,6 +41,7 @@ public abstract class UserSupport extends PortalSupport {
     public final String UEDIT = "uedit";
     public final String LOGF = "logf";
     public final String REGF = "regf";
+    public final String JSON = "json";
 
         
     //---------------------------------------------------------------------
@@ -82,6 +83,22 @@ public abstract class UserSupport extends PortalSupport {
 	return this.activationKey;
     }
 
+    protected String prefs = "";
+    
+    public void setPrefs( String prefs ) {
+        this.prefs = prefs;
+    }
+
+    protected String rurl = null;
+
+    public void setRurl( String rurl ) {
+        this.rurl = rurl;
+    }
+
+    public String getRurl() {
+        return rurl;
+    }
+
     //---------------------------------------------------------------------
 
     public String execute() throws Exception{
@@ -109,6 +126,17 @@ public abstract class UserSupport extends PortalSupport {
 	}
 	if ( operation != null & operation.equalsIgnoreCase( "logf" ) ) {
 	    return LOGF;
+	}
+
+	if ( operation != null & operation.equalsIgnoreCase( "getprefs" ) ) {
+	    edit();
+            return JSON;
+	}
+
+	if ( operation != null & operation.equalsIgnoreCase( "setprefs" ) ) {
+	    edit();
+            return JSON;
+
 	}
 	return LOGF;
     }
