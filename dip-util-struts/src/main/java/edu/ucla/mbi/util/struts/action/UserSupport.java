@@ -127,6 +127,9 @@ public abstract class UserSupport extends PortalSupport {
 	if ( operation != null & operation.equalsIgnoreCase( "logf" ) ) {
 	    return LOGF;
 	}
+	if ( operation != null & operation.equalsIgnoreCase( "actf" ) ) {
+	    return ACTIVATE;
+	}
 
 	if ( operation != null & operation.equalsIgnoreCase( "getprefs" ) ) {
 	    edit();
