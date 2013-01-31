@@ -39,8 +39,7 @@ public class WorkflowContext extends JsonContext {
 
         Log log = LogFactory.getLog( this.getClass() );
         log.info( "WorkflowContext: initializing" );
-        
-        /*
+                
         FileResource fr = (FileResource) getConfig().get("json-source");
         if ( fr == null ) return;
 
@@ -50,7 +49,7 @@ public class WorkflowContext extends JsonContext {
             log.info( "WorkflowContext: json-source error" );
             return;
         }
-        */
+        
         log.info( "WorkflowContext: json-source OK " );
         System.out.println( "config="+ getJsonConfigObject() );
         

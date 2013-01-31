@@ -222,11 +222,11 @@ public class AclInterceptor implements Interceptor{
             Set<String> aul = new HashSet<String>();
             Set<String> agl = new HashSet<String>();
             
-            Map target = (Map) opcAcr.get("target");
+            Map target = (Map) opcAcr.get("target");  // target rules
             
             // copy users
             //-----------
-            List ousr = (List) target.get( "ousr" );
+            List ousr = (List) target.get( "ousr" );   // owner rule
             
             if ( ousr != null ) {
                 for ( Iterator ii = ousr.iterator(); ii.hasNext(); ) {
@@ -242,7 +242,7 @@ public class AclInterceptor implements Interceptor{
             // copy admin users
             //-----------------
 
-            List ausr = (List) target.get( "ausr" );
+            List ausr = (List) target.get( "ausr" );  // admin user rule
             
             if ( ausr != null ) {
                 for ( Iterator ii = ausr.iterator(); ii.hasNext(); ) {
@@ -259,16 +259,19 @@ public class AclInterceptor implements Interceptor{
             // copy admin groups
             //------------------
 
-            List agrp = (List) target.get( "agrp" );
+            List agrp = (List) target.get( "agrp" );  // admin group rule
             
             if ( agrp != null ) {
                 for ( Iterator ii = agrp.iterator(); ii.hasNext(); ) {
                     String  os = (String) ii.next();
                     if ( os.equals( "__LOGIN" ) && login != null ) {
-                        // NOTE: possibly copy user current login groups ?
-                                               
+                        // NOTE: possibly copy  logged user  groups ?
+                        
+                        agl.addAll( groups );
+
+                    } else {
+                        agl.add( os );                    
                     }
-                    agl.add( os );
                 }
             }
 

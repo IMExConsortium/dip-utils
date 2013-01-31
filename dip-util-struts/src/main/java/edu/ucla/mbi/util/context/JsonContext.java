@@ -18,6 +18,14 @@ import java.util.*;
 import java.io.*;
 import org.json.*;
 
+/**
+ * This class provides access to configuration parameters stored in 
+ * a JSON-formatted file. Once the configuration file is parsed the 
+ * parameters can be read, modified and written back to the configuation 
+ * file.
+ * 
+ **/
+
 public class JsonContext {
 
     public JsonContext() {}
@@ -97,6 +105,12 @@ public class JsonContext {
     }
 
     private Map<String,Object> jsonConfigUtil = null;
+
+    /**
+     * Returns java.uti.map representation of the configuration object 
+
+     * @return configuration object
+     **/
 
     public Map<String,Object>  getJsonConfig() {
         return jsonConfigUtil;
