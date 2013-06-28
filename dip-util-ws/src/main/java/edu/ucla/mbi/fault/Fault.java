@@ -25,6 +25,7 @@ public class Fault {
     public static final int TRANSFORM = 7;
     public static final int QUERY_TYPE = 8;
     public static final int OP_NOT_ALLOWED = 9;
+    public static final int OVERLAY = 10;
 
     public static final int REMOTE_TIMEOUT = 12;
     public static final int REMOTE_FAULT = 13;
@@ -59,6 +60,7 @@ public class Fault {
         fault.put(  7, "transformation error" );
         fault.put(  8, "invalid query type" );
         fault.put(  9, "operation not allowed" );
+        fault.put(  10, "overlay error" );
 
         fault.put( 12, "remote server timeout" );
         fault.put( 13, "remote server fault" );
