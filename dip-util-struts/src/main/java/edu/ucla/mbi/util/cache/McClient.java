@@ -45,6 +45,9 @@ public class McClient implements CacheClient {
     public void store( String id, Object obj ) throws Exception {
         mcf.set( prefix + id, ttl, obj );
     }
-    
+
+    public void shutdown() {
+        mcf.shutdown();
+    }    
 }
 
