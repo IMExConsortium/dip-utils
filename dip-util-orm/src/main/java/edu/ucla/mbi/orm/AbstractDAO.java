@@ -10,24 +10,43 @@ package edu.ucla.mbi.orm;
  *
  *=========================================================================== */
 
+import org.apache.commons.logging.*;
 import org.hibernate.*;
+
 import java.util.*;
 import java.io.Serializable;
-import org.compass.core.*;
 
 public abstract class AbstractDAO {
-    
-    protected HibernateOrmUtil hibernateOrmUtil;
 
-    protected AbstractDAO ( HibernateOrmUtil hibernateOrmUtil ) {
-        this.hibernateOrmUtil = hibernateOrmUtil;
+    private SessionFactory sessionFactory;
+
+    public AbstractDAO(){
+    }
+
+
+    public AbstractDAO( SessionFactory sessionFactory ){
+        this.sessionFactory = sessionFactory;
+    }
+
+
+    public void setSessionFactory( SessionFactory sessionFactory ){
+        this.sessionFactory = sessionFactory;
+    }
+
+    public SessionFactory getSessionFactory(){
+        return this.sessionFactory;
+    }
+    
+    protected Session getCurrentSession(){
+        //return sessionFactory.getCurrentSession();
+        return sessionFactory.openSession();
     }
 
     protected void save( Object obj ) throws DAOException {
 
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-
+        
         try {
             session.save( obj );
             tx.commit();
@@ -37,10 +56,10 @@ public abstract class AbstractDAO {
             session.close();
         }
     }
-
+    
     protected void update( Object obj ) throws DAOException {
 
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
 
         try {
@@ -56,7 +75,7 @@ public abstract class AbstractDAO {
 
     protected void saveOrUpdate( Object obj ) throws DAOException {
 
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
 
         try {            
@@ -72,9 +91,9 @@ public abstract class AbstractDAO {
 
     protected void delete ( Object obj ) throws DAOException {
     
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
-         
+        
         try {
             session.delete( obj );
             tx.commit();
@@ -83,13 +102,13 @@ public abstract class AbstractDAO {
         } finally {
             session.close();
         }
- 
+        
     }
    
     protected Object get( Class clazz, int id ) throws DAOException {
 
         Object obj = null;
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
 
         try {
@@ -104,21 +123,21 @@ public abstract class AbstractDAO {
         return obj;
     }
  
-    protected List query ( Object object, String tableName, 
-                             String columnName ) throws DAOException {
+    protected List query( Object object, String tableName, 
+                          String columnName ) throws DAOException {
 
         List obj = null;
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
 
         try{
             Query query = session.createQuery(
-                                        "from " + tableName + " a where a." +
-                                        columnName + " = :" + columnName );
+                                              "from " + tableName + " a where a." +
+                                              columnName + " = :" + columnName );
             query.setParameter( columnName, object );
             obj = query.list();
             tx.commit();
-        } catch (HibernateException e) {
+        } catch( HibernateException e ){
             handleException(e);
         } finally {
             session.close();
@@ -131,13 +150,13 @@ public abstract class AbstractDAO {
 
         Object obj = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
         try {
             obj = session.load( clazz, id );
             tx.commit();
-        } catch ( HibernateException e ) {
+        } catch( HibernateException e ){
             handleException( e );
         } finally {
             session.close();
@@ -150,7 +169,7 @@ public abstract class AbstractDAO {
 
         Object obj = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
         try {
@@ -170,7 +189,7 @@ public abstract class AbstractDAO {
 
         Object obj = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
         try {
@@ -189,12 +208,12 @@ public abstract class AbstractDAO {
 
         Object obj = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
-	    try {
-	        obj = session.load(clazz, id);
-	        tx.commit();
+        try {
+            obj = session.load(clazz, id);
+            tx.commit();
         } catch (HibernateException e) {
             handleException(e);
         } finally {
@@ -208,7 +227,7 @@ public abstract class AbstractDAO {
 
         List objects = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
         try {
@@ -225,10 +244,10 @@ public abstract class AbstractDAO {
     }
 
     protected List findAll( Class clazz, String column ) throws DAOException {
-
+        
         List objects = null;
         
-        Session session = hibernateOrmUtil.getCurrentSession();
+        Session session = getCurrentSession();
         Transaction tx = session.beginTransaction();
         
         try {
@@ -253,7 +272,7 @@ public abstract class AbstractDAO {
 
     protected void handleException( HibernateException e ) throws DAOException {
         e.printStackTrace();
-        throw new DAOException("Hibernate DAO Exception.");
+        throw new DAOException( "Hibernate DAO Exception." );
     }
 
 }

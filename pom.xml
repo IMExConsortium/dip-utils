@@ -4,7 +4,7 @@
   <groupId>edu.ucla.mbi.dip</groupId>
   <artifactId>dip-util</artifactId>
   <packaging>pom</packaging>
-  <version>0.04</version>
+  <version>0.99</version>
   <name>dip-util</name>
   <url>http://dip.mbi.ucla.edu</url>
 
@@ -38,7 +38,7 @@
       <id>lukasz</id>
       <name>Lukasz Salwinski</name>
       <url>http://dip.mbi.ucla.edu/dip/developers/lukasz</url>
-      <organization>UCLA-DOE Institute for Genomics and Proteomics</organization>
+      <organization>UCLA-DOE Institute</organization>
       <organizationUrl>http://www.ucla-doe.mbi.ucla.edu</organizationUrl>
       <roles>
         <role>developer</role>
@@ -50,7 +50,7 @@
       <id>wyu</id>
       <name>Weixia Yu</name>
       <url>http://dip.mbi.ucla.edu/dip/developers/wyu</url>
-      <organization>UCLA-DOE Institute for Genomics and Proteomics</organization>
+      <organization>UCLA-DOE Institute</organization>
       <organizationUrl>http://www.ucla-doe.mbi.ucla.edu</organizationUrl>
       <roles>
         <role>developer</role>
@@ -100,8 +100,8 @@
         <configuration>
           <verbose>true</verbose>
           <fork>true</fork>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
 

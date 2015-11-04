@@ -20,6 +20,9 @@ public interface WorkflowDao {
     public List<DataState> getDataStateList();
     public long getDataStateCount();
 
+    public DataState getDataStage( int id );
+    public DataState getDataStage( String title );
+
     public void saveDataState( DataState state );
     public void updateDataState( DataState state );
     public void deleteDataState( DataState state );

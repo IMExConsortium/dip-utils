@@ -22,7 +22,7 @@ import javax.xml.ws.handler.MessageContext;
 import org.apache.commons.codec.binary.Base64;
 import org.vps.crypt.Crypt;
 
-import org.springframework.security.providers.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
 public class Credentials {
         

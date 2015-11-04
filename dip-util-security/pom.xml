@@ -9,32 +9,40 @@
   <parent>
     <groupId>edu.ucla.mbi.dip</groupId>
     <artifactId>dip-util</artifactId>
-    <version>0.04</version>
+    <version>0.99</version>
   </parent>
 
   <dependencies>
+<!--
     <dependency>
       <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-core-tiger</artifactId>
-      <version>2.0.6.RELEASE</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring</artifactId>
-        </exclusion>
-      </exclusions>
+      <artifactId>spring-security-web</artifactId>
+      <version>4.0.2.RELEASE</version>
     </dependency>
-    
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>4.0.2.RELEASE</version>
+    </dependency>
+-->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>4.0.2.RELEASE</version>
+    </dependency>
+
+
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>1.4</version>
+      <version>1.10</version>
     </dependency>
 
     <dependency>
       <groupId>edu.ucla.mbi.dip</groupId>
       <artifactId>dip-util-data</artifactId>
-      <version>0.04</version>
+      <version>0.99</version>
     </dependency>
 
   </dependencies>

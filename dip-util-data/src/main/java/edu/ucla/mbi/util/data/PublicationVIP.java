@@ -52,4 +52,20 @@ public class PublicationVIP extends Publication {
         this.pages = pages;
     }
 
+    public String getPages() {
+        return this.pages;
+    }
+
+    //--------------------------------------------------------------------------
+
+    private String year = "";
+
+    public void setYear( String year ) {
+        this.year = year;
+    }
+
+    public String getYear() {
+        return this.year;
+    }
+
 }
