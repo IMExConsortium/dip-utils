@@ -39,6 +39,7 @@ public interface PublicationDao {
     public List<User> getAdminUsers( String query );
     public List<Group> getAdminGroups( String query ); 
     public List<DataState> getStates( String query );
+
     
     //public void savePublication( Publication publication );
     //public void updatePublication( Publication publication );

@@ -39,12 +39,48 @@ public abstract class UserMgrSupport extends ManagerSupport {
     
     public List<User> getUserList(){
         if ( getUserContext().getUserDao() == null ) return null;
-        
-        if( firstRecord > 0 &&  blockSize > 0 ) {
+
+	Log log = LogFactory.getLog( this.getClass() );
+	log.debug( "UserMgrSupport.getUserList called:  opp=" + getOpp());
+
+
+	if ( getOpp() == null ){
+	    firstRecord = 0;
+	    blockSize = 0;	    
+	} else {
+		    
+	    String sFirstRecord = getOpp().get( "off" );
+	    String sBlockSize = getOpp().get( "max" );
+	
+	    if ( sFirstRecord != null ) {
+		try {
+		    firstRecord = Integer.valueOf( sFirstRecord );			    
+		} catch ( Exception ex ) {
+		    firstRecord = 0;
+		    // should not happen
+		}
+	    }
+	    
+	    if ( sBlockSize != null ) {
+		try {
+		    blockSize = Integer.valueOf( sBlockSize );			    
+		} catch ( Exception ex ) {
+		    blockSize = 0;
+		    // should not happen
+		}
+	    }
+	}
+	
+        if( firstRecord > 0 ||  blockSize > 0 ) {
+
+	    log.debug( "UserMgrSupport.getUserList called:  firstRecord=" + firstRecord);
+	    log.debug( "UserMgrSupport.getUserList called:  blockSize=" + blockSize);
             return getUserContext().getUserDao().getUserList( firstRecord, 
                                                               blockSize );
-        } 
-        return getUserContext().getUserDao().getUserList();
+        } else {
+	    log.debug( "UserMgrSupport.getUserList called:  all");
+	    return getUserContext().getUserDao().getUserList();
+	}
     }
 
 
@@ -81,6 +117,26 @@ public abstract class UserMgrSupport extends ManagerSupport {
     int firstRecord = -1;
     
     public int getFirstRecord() {
+
+	Log log = LogFactory.getLog( this.getClass() );
+        log.debug( "UserMgrSupport.getFirstRecord called");
+
+	if ( getOpp() == null ){
+            firstRecord = 0;
+	} else {
+
+            String sFirstRecord = getOpp().get( "off" );
+	    
+            if ( sFirstRecord != null ) {
+                try {
+                    firstRecord = Integer.valueOf( sFirstRecord );
+                } catch ( Exception ex ) {
+                    firstRecord = 0;
+                    // should not happen                                                                                                                                                 
+                }
+            }
+        }
+
         return firstRecord;
     }
     
@@ -89,11 +145,29 @@ public abstract class UserMgrSupport extends ManagerSupport {
     }
 
     //---------------------------------------------------------------------
-
     
     int blockSize = -1;
     
     public int getBlockSize() {
+
+	Log log = LogFactory.getLog( this.getClass() );
+        log.debug( "UserMgrSupport.getBlockSize called");
+
+	if ( getOpp() == null ){
+            blockSize = 0;
+	} else {
+            String sBlockSize = getOpp().get( "max" );
+
+            if ( sBlockSize != null ) {
+                try {
+                    blockSize = Integer.valueOf( sBlockSize );
+                } catch ( Exception ex ) {
+                    blockSize = 0;
+                    // should not happen
+		}
+	    }
+	}
+	
         return blockSize;
     }
     
@@ -104,6 +178,11 @@ public abstract class UserMgrSupport extends ManagerSupport {
     //---------------------------------------------------------------------
     
     public long getTotalRecords() {
+
+	Log log = LogFactory.getLog( this.getClass() );
+        log.debug( "UserMgrSupport.getTotalRecords called");
+	
+
         if ( getUserContext().getUserDao() == null ) return 0;
         return getUserContext().getUserDao().getUserCount();
     }
@@ -112,10 +191,38 @@ public abstract class UserMgrSupport extends ManagerSupport {
 
     public String execute() throws Exception{
         
+	Log log = LogFactory.getLog( this.getClass() );
+        
+	if( user != null){
+	    log.debug( "UserMgrSupport called:  " + user.toStringX());
+	} else {
+	    log.debug( "UserMgrSupport called:  null");
+
+	}
+	log.debug( "UserMgrSupport called:  op=" + getOp());
+	log.debug( "UserMgrSupport called:  opp=" + getOpp());
+
         if ( getUserContext().getUserDao() != null && 
              getId() > 0 && user == null ) {
             user = getUserContext().getUserDao().getUser( getId() );
-        }
+
+	    log.debug( "UserMgrSupport: old user" );
+	    if( user != null){
+		log.debug( "UserMgrSupport:  " + user.toStringX());
+	    } else {
+		log.debug( "UserMgrSupport:  null");
+	    }
+	    log.debug( "UserMgrSupport:  ");
+        } else {
+	    log.debug( "UserMgrSupport: new user" );
+	    if( user !=null){
+		log.debug( "UserMgrSupport:  " + user.toStringX());
+	    } else {
+		log.debug( "UserMgrSupport:  null");
+	    }
+
+	    log.debug( "UserMgrSupport:  ");	    
+	}
         
         if( getOp() == null ) return SUCCESS;
         
@@ -126,6 +233,11 @@ public abstract class UserMgrSupport extends ManagerSupport {
             String val = getOp().get(key);
             
             if ( val != null && val.length() > 0 ) {
+
+                if ( key.equalsIgnoreCase( "view" ) ) {
+		    return JSON;
+                }
+
                 if ( key.equalsIgnoreCase( "add" ) ) {
                     return addUser( user );
                 }
@@ -499,7 +611,7 @@ public abstract class UserMgrSupport extends ManagerSupport {
 
         getUserContext().getUserDao().saveUser( user );
         Log log = LogFactory.getLog( this.getClass() );
-        log.info( " new group -> id=" + user.getId() +
+        log.info( " new user -> id=" + user.getId() +
                   " login=" + user.getLogin() );
 
         this.user = null;

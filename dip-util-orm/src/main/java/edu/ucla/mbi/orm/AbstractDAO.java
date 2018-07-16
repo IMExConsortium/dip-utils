@@ -271,7 +271,7 @@ public abstract class AbstractDAO {
     }
 
     protected void handleException( HibernateException e ) throws DAOException {
-        e.printStackTrace();
+        //e.printStackTrace();
         throw new DAOException( "Hibernate DAO Exception." );
     }
 

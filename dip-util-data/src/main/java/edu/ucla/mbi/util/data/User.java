@@ -364,4 +364,23 @@ public class User implements Comparable {
         return id;
     }
 
+
+    public String toStringX(){
+
+	StringBuffer buffer = new StringBuffer();
+	
+	buffer.append("Id=");
+	buffer.append(id);
+	buffer.append(" Login="); 
+	buffer.append(login);
+	buffer.append(" First=");
+	buffer.append(firstName);
+	buffer.append(" Last=");
+	buffer.append(lastName);
+
+
+
+	return buffer.toString();
+    }
+
 }
